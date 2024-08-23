@@ -4,36 +4,30 @@
 <head>
     <title>Number to Words Converter</title>
     <script type="text/javascript">
-        // Function to restrict input to numbers only
         function onlyNumbers(evt) {
             var e = event || evt; // For cross-browser compatibility
             var charCode = e.which || e.keyCode;
-            // Allow only numbers (ASCII codes for digits: 48-57)
             if (charCode > 31 && (charCode < 48 || charCode > 57)) {
                 return false;
             }
             return true;
-        }
-
-        // Function to convert number to words
+        }      
         function NumToWord(inputNumber, outputControl) {
-            var str = inputNumber.toString();  // Convert number to string
-            var rev = str.split("").reverse(); // Split into characters and reverse the array
+            var str = inputNumber.toString();  
+            var rev = str.split("").reverse(); 
             var once = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
             var twos = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
             var tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
 
-            var word = []; // Array to store the word representation of the number
-            var numLength = rev.length; // Length of the reversed number
-            var j = 0; // Index for the word array
-
-            // Loop through the digits of the reversed number
+            var word = []; 
+            var numLength = rev.length; 
+            var j = 0;             
             for (var i = 0; i < numLength; i++) {
                 switch (i) {
                     case 0:
                         // Ones place
                         if (rev[i] == 0 || (rev[i + 1] == 1)) {
-                            word[j] = '';  // No word if digit is 0 or handled by twos array
+                            word[j] = ''; 
                         } else {
                             word[j] = once[rev[i]];
                         }
@@ -41,52 +35,37 @@
                     case 1:
                         // Tens place
                         if (rev[i] == 1) {
-                            word[j] = twos[rev[i - 1]]; // Special case for numbers 10-19
-                            word[j - 1] = '';  // Clear the ones place since it's handled here
+                            word[j] = twos[rev[i - 1]]; 
+                            word[j - 1] = '';  
                         } else if (rev[i] != 0) {
-                            word[j] = tens[rev[i]]; // Tens place word
+                            word[j] = tens[rev[i]]; 
                         }
                         break;
                     case 2:
-                        // Hundreds place
                         if (rev[i] != 0) {
-                            word[j] = once[rev[i]] + ' Hundred';  // Append "Hundred" for hundreds place
+                            word[j] = once[rev[i]] + ' Hundred'; 
                             if (rev[i - 1] != 0 || rev[i - 2] != 0) {
-                                word[j] += ' and';  // Add "and" if there are tens or ones digits
+                                word[j] += ' and'; 
                             }
                         }
                         break;
                     default:
-                        // Numbers greater than 999 are not handled by this function
                         document.getElementById(outputControl).innerHTML = "Number Out of Range";
                         return;
                 }
                 j++;
             }
-
-            // Reverse the word array back to match the original number order
             word.reverse();
-
-            // Combine the word array into a single string
-            var finalOutput = word.join(" ").trim();  // Join words with spaces, remove extra spaces
-
-            // Output the result in the specified HTML element
+            var finalOutput = word.join(" ").trim();  
             document.getElementById(outputControl).innerHTML = finalOutput;
         }
     </script>
 </head>
 
 <body>
-
     <h2>Number to Words Converter</h2>
-
-    <!-- Input for number entry -->
     <input type="text" id="numberInput" onkeypress="return onlyNumbers(event);" placeholder="Enter a number (0-999)">
     <button onclick="NumToWord(document.getElementById('numberInput').value, 'output')">Convert to Words</button>
-
-    <!-- Area to display the word output -->
     <p id="output"></p>
-
 </body>
-
 </html>
