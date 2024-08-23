@@ -1,0 +1,97 @@
+SOURCE CODE:
+UserDom.java
+import java.io.File;
+import javax.xml.parsers.*;
+import org.w3c.dom.*;
+import java.util.Scanner;
+public class UserDom 
+{ public static void main(String args[]) throws Exception 
+ { DocumentBuilderFactory fac=DocumentBuilderFactory.newInstance();
+ DocumentBuilder b=fac.newDocumentBuilder();
+ Document doc=b.parse(newFile("C:\\Users\\Admin\\Documents\\NetBeansProjects\\
+UserDom\\src\\userdom\\user.xml"));
+ doc.getDocumentElement().normalize();
+ Element root=doc.getDocumentElement();
+ Scanner in=new Scanner(System.in);
+ System.out.println("Enter User ID:");
+ int n=in.nextInt();
+ int flag=0;
+ NodeList nl=doc.getElementsByTagName("user");
+ for(int i=0;i<nl.getLength();i++) 
+ { Node node=nl.item(i);
+ if(node.getNodeType()==Node.ELEMENT_NODE)
+ { Element e=(Element)node;
+ int 
+x=Integer.parseInt(e.getElementsByTagName("rollno").item(0).getTextContent()); 
+ if(x==n) 
+ {
+ System.out.println(root.getNodeName());
+ System.out.println("--------------------------------");
+ 
+System.out.println("rollno:\t"+e.getElementsByTagName("rollno").item(0).getTextConte
+nt());
+ 
+System.out.println("name:\t"+e.getElementsByTagName("name").item(0).getTextConten
+t());
+ 
+System.out.println("branch:\t"+e.getElementsByTagName("branch").item(0).getTextCon
+tent()); 
+System.out.println("college:"+e.getElementsByTagName("college").item(0).getTextCont
+ent()); 
+ flag=1;
+ break; 
+ }
+ else 
+ {
+ System.out.println("User not available");
+ break;
+ }
+ }
+ }
+ }
+}
+User.xml
+<usersinformation> 
+ <user> 
+ <rollno>501</rollno> 
+ <name>aaa</name> 
+ <branch>cse</branch> 
+ <college>mrcet</college> 
+ </user> 
+ <user> 
+ <rollno>502</rollno> 
+ <name>bbb</name> 
+ <branch>cse</branch> 
+ <college>mrcet</college> 
+ </user> 
+ <user> 
+ <rollno>503</rollno> 
+ <name>ccc</name> 
+ <branch>cse</branch> 
+ <college>mrcet</college> 
+ </user> 
+ <user> 
+ <rollno>504</rollno> 
+ <name>ddd</name> 
+ <branch>cse</branch> 
+ <college>mrcet</college> 
+ </user> 
+ <user> 
+ <rollno>505</rollno> 
+ <name>eee</name> 
+ <branch>cse</branch> 
+ <college>mrcet</college> 
+ </user> 
+ <user> 
+ <rollno>506</rollno> 
+ <name>fff</name> 
+ <branch>cse</branch> 
+ <college>mrcet</college> 
+ </user> 
+ <user> 
+ <rollno>508</rollno> 
+ <name>hhh</name> 
+ <branch>cse</branch> 
+ <college>mrcet</college> 
+ </user> 
+</usersinformation>
