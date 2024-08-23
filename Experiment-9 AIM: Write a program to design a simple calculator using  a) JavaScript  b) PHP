@@ -1,0 +1,119 @@
+a.)
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calculator</title>
+    <style>
+        table {
+            margin: auto;
+            background-color: lightblue;
+            border: 2px solid black;
+        }
+
+        input {
+            width: 100%;
+            text-align: right;
+        }
+    </style>
+    <script>
+        let inputStr = ""; // To store input values
+
+        function press(key) {
+            if (key === "C") inputStr = "";          // Clear input if 'C' is pressed
+            else if (key === "=") inputStr = eval(inputStr) || ""; // Evaluate expression or reset
+            else inputStr += key;                   // Append key to input string
+
+            document.getElementById("display").value = inputStr; // Update display
+        }
+    </script>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td colspan="4"><input id="display" disabled></td>
+        </tr>
+        <tr>
+            <td><button onclick="press('C')">C</button></td>
+            <td><button onclick="press('%')">%</button></td>
+            <td><button onclick="press('*')">*</button></td>
+            <td><button onclick="press('/')">/</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="press('7')">7</button></td>
+            <td><button onclick="press('8')">8</button></td>
+            <td><button onclick="press('9')">9</button></td>
+            <td><button onclick="press('-')">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="press('4')">4</button></td>
+            <td><button onclick="press('5')">5</button></td>
+            <td><button onclick="press('6')">6</button></td>
+            <td><button onclick="press('+')">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="press('1')">1</button></td>
+            <td><button onclick="press('2')">2</button></td>
+            <td><button onclick="press('3')">3</button></td>
+            <td rowspan="2"><button onclick="press('=')">=</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="press('0')">0</button></td>
+            <td><button onclick="press('00')">00</button></td>
+            <td><button onclick="press('.')">.</button></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
+
+b.)in php 
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="UTF-8">
+ <title>Simple Calculator using PHP</title>
+ </head>
+ <body>
+ <form name="f1" action="index.php" method="post">
+ <p>1st Number</p><input type="text" name="t1">
+ <p>2nd Number</p><input type="text" name="t2">
+ <p><input type="submit" value="Add" name="add" />
+ <input type="submit" value="Subtract" name="sub" />
+ <input type="submit" value="Multiply" name="mul" />
+ <input type="submit" value="Divide" name="div" /></p> 
+ </form>
+ <?php 
+ $a = $_POST['t1']; 
+ $b = $_POST['t2']; 
+ if (isset($_POST['add']))
+ {
+ $c = $a + $b;
+ print 'The sum is: ';
+ print $a . "+" . $b . "=" . $c;
+ }
+ if (isset($_POST['sub']))
+ {
+ $c = $a - $b;
+ print 'The difference is: ';
+ print $a . "-" . $b . "=" . $c;
+ }
+ if (isset($_POST['mul'])) 
+ {
+ $c = $a * $b; 
+ print 'The produce is: ';
+ print $a . "*" . $b . "=" . $c;
+ }
+ if (isset($_POST['div'])) 
+ {
+ $c = $a / $b;
+ print 'The quotient is: ';
+ print $a . "/" . $b . "=" . $c; 
+ }
+ ?>
+ </body>
+</html>
