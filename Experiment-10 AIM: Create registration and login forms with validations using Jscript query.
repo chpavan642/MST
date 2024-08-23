@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login/Sign up Page</title>
+    <script src="js/validator.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-section">
+            <ul class="tabs">
+                <li><a href="#login" class="active">Login</a></li>
+                <li><a href="#register">Register</a></li>
+            </ul>
+
+            <div id="login" class="form-display">
+                <h1>Login</h1>
+                <form action="" method="post" novalidate>
+                    <input type="text" name="name" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+
+            <div id="register" class="form-display">
+                <h1>Register</h1>
+                <form action="" method="post" novalidate>
+                    <input type="text" name="name" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="url" name="url" placeholder="Website" required>
+                    <input type="submit" value="Sign Up">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
