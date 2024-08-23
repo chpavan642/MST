@@ -1,0 +1,90 @@
+a.) Input: Click on Display Date button using on click ( ) function Output: Display date in  the textbox 
+<html>
+<body>
+  <script>
+    function display() {
+      let d = new Date();
+      let date = d.getDate();
+      let month = d.getMonth() + 1;  // Month is 0-11, so we add 1
+      let year = d.getFullYear();
+      document.getElementById("dis").value = date + "/" + month + "/" + year;
+    }
+  </script>
+  
+  <input type="text" id="dis" readonly />
+  <button onclick="display()">Display Date</button>
+</body>
+</html>
+
+b.)  Input: A number n obtained using prompt Output: Factorial of n number using alert
+<html>
+<head>
+  <title>Factorial Calculator</title>
+  <script>
+    function factorialcalc() {
+      let number = parseInt(prompt("Enter a number", "Enter a natural number"));
+      let factorial = 1;
+      for (let i = 1; i <= number; i++) {
+        factorial *= i;
+      }
+      alert("The factorial of " + number + " is " + factorial);
+    }
+  </script>
+</head>
+<body>
+  <form>
+    <input type="button" value="Calculate Factorial" onclick="factorialcalc();" />
+  </form>
+</body>
+</html>
+
+
+c.)Input: A number n obtained using prompt Output: A multiplication table of numbers 
+from 1 to 10 of n using alert
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table</title>
+</head>
+<body>
+  <script>
+    var n = prompt("Enter a number:");
+    if (!isNaN(n) && n > 0) {
+      var result = "";
+      for (var i = 1; i <= 10; i++) {
+        result += n + " x " + i + " = " + (n * i) + "\n";
+      }
+      alert(result);
+    } else {
+      alert("Please enter a valid number!");
+    }
+  </script>
+</body>
+</html>
+
+d.)Sum of numbers 
+<html>
+<head>
+ <title>Sum of n numbers using Pop-up boxes</title>
+ <script language='javascript'> 
+ function addsum()
+ {
+ alert("You're going to give me a list of numbers. I'm going to add them"); 
+ var keepgoing = true;
+ var sumofnums = 0 ;
+ while (keepgoing)
+ {
+ sumofnums = sumofnums + parseInt(prompt("what's the next number to 
+add?","")) ;
+ keepgoing = confirm("add another number?");
+ }
+ alert("the sum of all your numbers is " + sumofnums);
+ }
+ </script>
+</head>
+<body>
+ <form name=frm>
+ <input type=button value='sum of n numbers' onclick="addsum();">
+ </form>
+</body>
+</html>
