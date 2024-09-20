@@ -1,0 +1,36 @@
+a) Implementation of ‘get’ and ‘post’ methods. 
+<html>
+<head>
+    <style>
+      h1 {
+            color: skyblue;	
+            text-align: center;
+        }
+        p {
+            color: gold;
+            font-size: 100px;
+        }
+    </style>
+    <title>Login Page</title>
+</head>
+
+<body>
+    <center>
+        <form name="loginForm" method="get" action="Profile.html">
+            <h1>Login Page</h1>
+            
+            <p>Username:</p>
+            <input type="text" size=25 name="userid">
+
+            <p>Password:</p>
+            <input type="password" size=25 name="pwd">
+
+            <input type="reset" value="Reset">
+
+            <button type="submit">Login</button>
+        </form>
+    </center>
+</body>
+</html>
+
+
