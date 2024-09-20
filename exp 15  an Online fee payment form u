@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Payment</title>
+</head>
+
+<body>
+    <h2>Pay Fees</h2>
+
+    <form id="paymentForm">
+        <input type="text" id="name" placeholder="Name" required><br><br>
+        <input type="email" id="email" placeholder="Email" required><br><br>
+        <input type="number" id="amount" placeholder="Amount" required><br><br>
+        <select id="method" required>
+            <option value="">Payment Method</option>
+            <option value="credit_card">Credit Card</option>
+            <option value="debit_card">Debit Card</option>
+            <option value="net_banking">Net Banking</option>
+        </select><br><br>
+        <button type="button" onclick="submitPayment()">Pay</button>
+    </form>
+
+    <script>
+        function submitPayment() {
+            if (document.getElementById("name").value && document.getElementById("email").value &&
+                document.getElementById("amount").value && document.getElementById("method").value) {
+                alert("Payment submitted!");
+            } else {
+                alert("Fill all fields.");
+            }
+        }
+    </script>
+</body>
+
+</html>
